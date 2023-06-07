@@ -1,0 +1,59 @@
+﻿<Window x:Class="Test_Demo.ListProductAuthUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test_Demo" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="ListProductAuthUser" Height="600" Width="1000">
+    <Window.Resources>
+        <sys:String x:Key="NullImg">
+            pack://application:,,,/Resources/picture.png
+        </sys:String>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Rectangle Fill="#FF3EFF04"></Rectangle>
+            <Button Content="Выход" HorizontalAlignment="Left" Margin="910,4,0,0" VerticalAlignment="Top" Width="70" Background="#FF498C53" Foreground="White" FontFamily="Comic Sans MS" Height="24"/>
+            <Image HorizontalAlignment="Left" Height="82" VerticalAlignment="Bottom" Width="83"  Margin="10,0,0,4" Source="/Resources/logo.png"/>
+            <Label Content="ООО «Ткани»" HorizontalAlignment="Left" Margin="120,9,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Список товаров" HorizontalAlignment="Left" Margin="120,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.194" FontFamily="Comic Sans MS" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="Вы вошли как:" HorizontalAlignment="Left" Margin="721,45,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="ФИО" HorizontalAlignment="Left" Margin="820,45,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
+
+        </Grid>
+        <ListView Grid.Row="2" x:Name="ListProducts" HorizontalAlignment="Center" ScrollViewer.CanContentScroll="True">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel>
+                        
+                    </StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" BorderBrush="Black">
+                        <Grid Width="300" Height="200">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding ImgPath, FallbackValue={StaticResource NullImg}}"></Image>
+                            <UniformGrid>
+                                
+                            </UniformGrid>
+                        </Grid>
+
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
